@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import base64
 import smtplib
+from smtplib import SMTPException
 
 sender = 'from@fromdomain.com'
 receivers = ['to@todomain.com']
