@@ -29,7 +29,12 @@ del dict         # delete entire dictionary
 # =============================================================================
 # Properties of Dictionary Keys 
 # =============================================================================
+# 赋值过程中遇到重复键时，以最后一次赋值为准
 dict = {'Name': 'Zara', 'Age': 7, 'Name': 'Manni'}
+print ("dict['Name']: ", dict['Name'])
+# 键必须是不可变的。这意味着您可以使用字符串、数字或元组作为字典键，
+# 但不允许使用 ['key'] 之类的东西。打印会报错
+# dict = {['Name']: 'Zara', 'Age': 7}
 print ("dict['Name']: ", dict['Name'])
 # =============================================================================
 # Built-in Dictionary Functions and Methods
