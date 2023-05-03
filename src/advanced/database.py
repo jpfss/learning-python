@@ -134,7 +134,7 @@ db = pymysql.connect("localhost", "testuser", "test123", "TESTDB")
 cursor = db.cursor()
 
 # Prepare SQL query to UPDATE required records
-sql = "UPDATE EMPLOYEE SET AGE = AGE + 1
+sql = "UPDATE EMPLOYEE SET AGE = AGE + 1 \
 WHERE SEX = '%c'" % ('M')
 try:
     # Execute the SQL command
