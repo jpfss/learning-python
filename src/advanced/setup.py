@@ -7,8 +7,13 @@ Created on Wed May  3 16:01:37 2023
 """
 
 from distutils.core import setup, Extension
-module1 = Extension('Test', sources=['add.c'])
-setup(name='Test',
-      version='1.0',
-      description='This is a demo package',
-      ext_modules=[module1])
+
+hello_module = Extension('hello', sources=['hello.c'])
+
+setup(name='hello',
+
+      version='0.1.0',
+
+      description='Hello world module written in C',
+
+      ext_modules=[hello_module])

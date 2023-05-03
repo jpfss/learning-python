@@ -5,6 +5,6 @@
 # Building and Installing Extensions
 # =============================================================================
 
-import Test as t
+import hello as h
 x = 1
-print(t.add_one(x))
+print(h.hello())
