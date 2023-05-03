@@ -7,4 +7,4 @@
 
 import hello as h
 
-print(h.hello())
+print(h.hello("python"))
