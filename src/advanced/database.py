@@ -6,7 +6,8 @@
 import pymysql
 
 # Open database connection
-db = pymysql.connect("localhost", "testuser", "test123", "TESTDB")
+db = pymysql.connect(host="localhost",  user="root",
+                     password="root", database="test")
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
@@ -24,12 +25,16 @@ db.close()
 # Creating Database Table
 # =============================================================================
 # Open database connection
-db = pymysql.connect("localhost", "testuser", "test123", "TESTDB")
+# db = pymysql.connect(host="localhost",  user="testuser",
+#                      password="test123", database="TESTDB")
+db = pymysql.connect(host="localhost",  user="root",
+                     password="root", database="test")
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
 
 # Drop table if it already exist using execute() method.
+db.ping(reconnect=True)
 cursor.execute("DROP TABLE IF EXISTS EMPLOYEE")
 
 # Create table as per requirement
@@ -48,7 +53,8 @@ db.close()
 # INSERT Operation
 # =============================================================================
 # Open database connection
-db = pymysql.connect("localhost", "testuser", "test123", "TESTDB")
+db = pymysql.connect(host="localhost",  user="root",
+                     password="root", database="test")
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
@@ -59,6 +65,7 @@ sql = """INSERT INTO EMPLOYEE(FIRST_NAME,
    VALUES ('Mac', 'Mohan', 20, 'M', 2000)"""
 try:
     # Execute the SQL command
+    db.ping(reconnect=True)
     cursor.execute(sql)
     # Commit your changes in the database
     db.commit()
@@ -72,7 +79,8 @@ db.close()
 # insert其他格式
 
 # Open database connection
-db = pymysql.connect("localhost", "testuser", "test123", "TESTDB")
+db = pymysql.connect(host="localhost",  user="root",
+                     password="root", database="test")
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
@@ -83,6 +91,7 @@ sql = "INSERT INTO EMPLOYEE(FIRST_NAME, \
    VALUES ('%s', '%s', '%d', '%c', '%d' )" % \
     ('Mac', 'Mohan', 20, 'M', 2000)
 try:
+    db.ping(reconnect=True)
     # Execute the SQL command
     cursor.execute(sql)
     # Commit your changes in the database
@@ -97,7 +106,8 @@ db.close()
 # READ Operation
 # =============================================================================
 # Open database connection
-db = pymysql.connect("localhost", "testuser", "test123", "TESTDB")
+db = pymysql.connect(host="localhost",  user="root",
+                     password="root", database="test")
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
@@ -106,6 +116,7 @@ cursor = db.cursor()
 sql = "SELECT * FROM EMPLOYEE \
       WHERE INCOME > '%d'" % (1000)
 try:
+    db.ping(reconnect=True)
     # Execute the SQL command
     cursor.execute(sql)
     # Fetch all the rows in a list of lists.
@@ -128,7 +139,8 @@ db.close()
 # Update Operation
 # =============================================================================
 # Open database connection
-db = pymysql.connect("localhost", "testuser", "test123", "TESTDB")
+db = pymysql.connect(host="localhost",  user="root",
+                     password="root", database="test")
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
@@ -137,6 +149,7 @@ cursor = db.cursor()
 sql = "UPDATE EMPLOYEE SET AGE = AGE + 1 \
 WHERE SEX = '%c'" % ('M')
 try:
+    db.ping(reconnect=True)
     # Execute the SQL command
     cursor.execute(sql)
     # Commit your changes in the database
@@ -151,7 +164,8 @@ db.close()
 # DELETE Operation
 # =============================================================================
 # Open database connection
-db = pymysql.connect("localhost", "testuser", "test123", "TESTDB")
+db = pymysql.connect(host="localhost",  user="root",
+                     password="root", database="test")
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
@@ -159,6 +173,7 @@ cursor = db.cursor()
 # Prepare SQL query to DELETE required records
 sql = "DELETE FROM EMPLOYEE WHERE AGE > '%d'" % (20)
 try:
+    db.ping(reconnect=True)
     # Execute the SQL command
     cursor.execute(sql)
     # Commit your changes in the database
@@ -179,6 +194,7 @@ db.close()
 # Prepare SQL query to DELETE required records
 sql = "DELETE FROM EMPLOYEE WHERE AGE > '%d'" % (20)
 try:
+    db.ping(reconnect=True)
     # Execute the SQL command
     cursor.execute(sql)
     # Commit your changes in the database
