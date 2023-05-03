@@ -7,4 +7,5 @@
 
 import hello as h
 
+print(h.hello_world())
 print(h.hello("python"))
